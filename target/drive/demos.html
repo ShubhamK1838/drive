@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Webpage</title>
+</head>
+<body>
+    <h1>Open Webpage</h1>
+    <form id="urlForm">
+        <label for="urlInput">Enter URL:</label>
+        <input type="text" id="urlInput" name="urlInput" required>
+        <button type="submit">Open</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('urlForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            var url = document.getElementById('urlInput').value;
+            openWebpage(url);
+        });
+
+        function openWebpage(url) {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    // Replace the entire page with the fetched HTML content
+                    document.write(html);
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+
+
+
+
+	<servlet>
+		<servlet-name>Signup</servlet-name>
+		<display-name>Signup</display-name>
+		<description></description>
+		<servlet-class>servers.Signup</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<display-name>Login</display-name>
+		<description></description>
+		<servlet-class>servers.Login</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SaveFile</servlet-name>
+		<display-name>SaveFile</display-name>
+		<description></description>
+		<servlet-class>servers.SaveFile</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>FileDownload</servlet-name>
+		<display-name>FileDownload</display-name>
+		<description></description>
+		<servlet-class>servers.FileDownload</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteFile</servlet-name>
+		<display-name>DeleteFile</display-name>
+		<description></description>
+		<servlet-class>servers.DeleteFile</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<display-name>LogoutServlet</display-name>
+		<description></description>
+		<servlet-class>servers.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>TestOne</servlet-name>
+		<display-name>TestOne</display-name>
+		<description></description>
+		<servlet-class>servers.TestOne</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UpdateUser</servlet-name>
+		<display-name>UpdateUser</display-name>
+		<description></description>
+		<servlet-class>servers.UpdateUser</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SendOtp</servlet-name>
+		<display-name>SendOtp</display-name>
+		<description></description>
+		<servlet-class>servers.SendOtp</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidateEmailVerification</servlet-name>
+		<display-name>ValidateEmailVerification</display-name>
+		<description></description>
+		<servlet-class>servers.ValidateEmailVerification</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteUser</servlet-name>
+		<display-name>DeleteUser</display-name>
+		<description></description>
+		<servlet-class>servers.DeleteUser</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddFileUserLIst</servlet-name>
+		<display-name>AddFileUserLIst</display-name>
+		<description></description>
+		<servlet-class>servers.AddFileUserLIst</servlet-class>
+	</servlet>
+
+
+
+	<servlet-mapping>
+		<servlet-name>Signup</servlet-name>
+		<url-pattern>/Signup</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SaveFile</servlet-name>
+		<url-pattern>/SaveFile</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FileDownload</servlet-name>
+		<url-pattern>/FileDownload</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteFile</servlet-name>
+		<url-pattern>/delete</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/LogoutServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TestOne</servlet-name>
+		<url-pattern>/TestOne</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateUser</servlet-name>
+		<url-pattern>/UpdateUser</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SendOtp</servlet-name>
+		<url-pattern>/SendOtp</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidateEmailVerification</servlet-name>
+		<url-pattern>/ValidateEmailVerification</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteUser</servlet-name>
+		<url-pattern>/DeleteUser</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddFileUserLIst</servlet-name>
+		<url-pattern>/AddFileUserLIst</url-pattern>
+	</servlet-mapping>
+
+	
+
+
+
+
+</web-app>
