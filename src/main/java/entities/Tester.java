@@ -9,6 +9,7 @@ import org.hibernate.engine.transaction.jta.platform.internal.WebSphereExtendedJ
 import com.mysql.cj.Session;
 
 import database.FactoryProvider;
+import database.FileDao;
 import database.UserDao;
 import dbhelper.SpContext;
 
@@ -17,14 +18,9 @@ public class Tester {
 	public static void main(String ar[])
 	{
 		
-		FactoryProvider fp=new FactoryProvider(); 
+		FileDao dao=SpContext.context.getBean("fileDao", FileDao.class); 
 		
-
-		
-		org.hibernate.Session session=fp.getSession(); 
-
-		
-		fp.close();
+		System.out.print(dao.getUserFiles(7));
 		
 	}
 

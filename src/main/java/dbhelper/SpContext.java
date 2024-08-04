@@ -7,6 +7,6 @@ public class SpContext {
 	
 	public static
 		org.springframework.context.ApplicationContext context=
-			new ClassPathXmlApplicationContext("/dbhelper/springconfig.xml"); 
+			new ClassPathXmlApplicationContext("/springconfig.xml"); 
 	
 }

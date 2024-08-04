@@ -15,8 +15,11 @@ import dbhelper.SpContext;
 import entities.User;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
+import myutil.Storage;
 
 public class Login extends HttpServlet {
+	
+	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -28,6 +31,12 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String relativePath = "uploadedFiles"; // the directory where you want to store files
+		String absolutePath = getServletContext().getRealPath(relativePath);
+		
+
+		
+		Storage.path=absolutePath; 
 		
 		if(request.getSession().getAttribute("user")!=null)
 		{

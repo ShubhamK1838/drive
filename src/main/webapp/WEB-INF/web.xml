@@ -80,6 +80,18 @@
 		<description></description>
 		<servlet-class>servers.AddFileUserLIst</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Video</servlet-name>
+		<display-name>Video</display-name>
+		<description></description>
+		<servlet-class>servers.Video</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Send</servlet-name>
+		<display-name>Send</display-name>
+		<description></description>
+		<servlet-class>server.Send</servlet-class>
+	</servlet>
 
 
 
@@ -131,9 +143,20 @@
 		<servlet-name>AddFileUserLIst</servlet-name>
 		<url-pattern>/AddFileUserLIst</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Video</servlet-name>
+		<url-pattern>/Video</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Send</servlet-name>
+		<url-pattern>/Send</url-pattern>
+	</servlet-mapping>
 
 	
-
+	 <welcome-file-list>
+        <welcome-file>home.jsp</welcome-file>
+    </welcome-file-list>
+	
 
 
 

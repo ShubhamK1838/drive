@@ -13,7 +13,7 @@
     <header class="navbar">
         <div class="navbar-brand">
             <img src="logo.png" alt="Logo" class="logo">
-            <span>Cloud Storage</span>
+            <span> CloudFileServer</span>
         </div>
         <nav class="navbar-nav">
             <a href="home.jsp">Home</a>

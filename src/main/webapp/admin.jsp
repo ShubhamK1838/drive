@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin - Logged In Users</title>
+<title>Admin Page </title>
 <style>
 body {
 	font-family: Arial, sans-serif;
@@ -58,6 +58,13 @@ body {
 <body>
 	<div class="users">
 		<%
+		User root=(User)session.getAttribute("user");
+		if(root==null || root.getUserId()!=1)
+		{
+			response.sendRedirect("home.jsp"); 
+		}
+			
+			
 		List<HttpSession> loggedUsers = (List<HttpSession>) getServletContext().getAttribute("logged_users");
 
 		if (loggedUsers != null ) {

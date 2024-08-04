@@ -1,3 +1,5 @@
+<%@page import="database.FileDao"%>
+<%@page import="dbhelper.SpContext"%>
 <%@page import="entities.File"%>
 <%@page import="java.util.List"%>
 <%@page import="org.hibernate.Query"%>
@@ -76,14 +78,10 @@ display:none;
 			</div>
 
 			<%
-				User cur_user=(User)session.getAttribute("user"); 
-				FactoryProvider fp=new FactoryProvider(); 
-				Session s=fp.getSession();  
 				
-				Query query=s.createQuery("from File where userid=:usr"); 
-				query.setParameter("usr", user.getUserId());
+				FileDao dao=SpContext.context.getBean("fileDao",FileDao.class); 
 				
-				List<File> files=query.list(); 
+				List<File> files=dao.getUserFiles(user.getUserId()); 
 				
 				for(File ele: files)
 				{
@@ -104,7 +102,7 @@ display:none;
 			</div>
 			<%
 				}
-				fp.close(); 
+			
 			%>
 		</div>
 	</main>
@@ -126,7 +124,7 @@ display:none;
 			var file_row=document.getElementById(file); 
 			
 			
-			var cnf=confirm("Are You Sure To Delete File "+ file); 
+			var cnf=confirm("Are You Sure To Delete File "); 
 			console.log(" file id "+ file+ " " + cnf);
 			
 			if(cnf==false) 

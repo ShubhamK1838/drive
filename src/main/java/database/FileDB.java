@@ -48,7 +48,7 @@ public class FileDB implements FileDao {
 	@Override
 	public List<File> getUserFiles(int user_id) {
 		DetachedCriteria cr=DetachedCriteria.forClass(File.class) ; 
-		cr.add(Restrictions.eq("userid", user_id)); 
+		cr.add(Restrictions.eq("user.userId", user_id)); 
 		return (List<File>)hibernateTemplate.findByCriteria(cr);
 		
 	}

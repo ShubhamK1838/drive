@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Verify User</title>
 
 <link rel="stylesheet" href="css/styles.css">
 <style> 

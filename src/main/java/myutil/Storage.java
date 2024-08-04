@@ -1,161 +1,128 @@
 package myutil;
 
 import java.io.*;
-import java.util.zip.InflaterInputStream;
-
+import java.nio.file.Paths;
 import database.FileDao;
 import dbhelper.SpContext;
 import entities.User;
 
 public class Storage {
 
-	private String dir;
+    public static String path; 
+    private String dir;
+    private entities.File userFile;
 
-	private entities.File userFile;
+    
+    public Storage(entities.File userFile) {
+        this.userFile = userFile;
+       
+        dir = path + File.separator + "storage" + File.separator + "d" + userFile.getUser().getUserId();
+        createDirectoryIfNotExists();
+    }
 
-	public Storage(entities.File userFile) {
-		this.userFile = userFile;
-		dir = ("C:\\Users\\shubh\\git\\Drive\\src\\main\\webapp\\storage\\d" + userFile.getUser().getUserId());
-		try {
+    public Storage(int fileId) {
+        FileDao fileDao = SpContext.context.getBean("fileDao", FileDao.class);
+        userFile = fileDao.getFile(fileId);
+        dir = path + File.separator + "storage" + File.separator + "d" + userFile.getUser().getUserId();
+        createDirectoryIfNotExists();
+    }
 
-			File file = new File(dir);
-			if (!file.exists()) {
-				file.mkdir();
-			}
-		} catch (Exception e) {
-			System.out.print(e);
-		}
-	}
-	
-	public File getIoFile()
-	{
-		return new File(dir+"\\"+userFile.getFileName()); 
-	}
-	
-	public FileInputStream getFileInputStream()
-	{
-		
-		try {
-			FileInputStream ios=new FileInputStream(getIoFile()) ;
-			
-			return ios; 
-		} catch (FileNotFoundException e) {
-			
-			System.out.println(e);
-		}
-		return null; 
-	}
-	
-	public Storage(int fileId)
-	{
-		FileDao fileDao = SpContext.context.getBean("fileDao", FileDao.class);
-		userFile=fileDao.getFile(fileId); 
-		
-	}
-	public FileInputStream getInputStream()
-	{
-		
-		try {
-			FileInputStream fos=new FileInputStream(dir+"\\"+userFile.getFileName());
-			
-			return fos; 
-			
-		} catch (FileNotFoundException e) {
-			
-			e.printStackTrace();
-		} 
-		return null; 
-	}
-	
-	public void fileDelete()
-	{
-		File file=new File(dir+"\\"+userFile.getFileName()); 
-		
-		if(file.exists()) {
-			FileDao fileDao = SpContext.context.getBean("fileDao", FileDao.class);
-			file.delete(); 
-			fileDao.delete(userFile);
-		}
-		
-	}
-	public void fileSave(InputStream ist) {
-		try {
+   
+    private void createDirectoryIfNotExists() {
+        File file = new File(dir);
+        if (!file.exists()) {
+        	file.mkdirs(); 
+        }
+    }
 
-			File file = new File(dir + "\\" + userFile.getFileName());
+    
+    public File getIoFile() {
+        return new File(dir + File.separator + userFile.getFileName());
+    }
 
+    
+    public FileInputStream getFileInputStream() {
+        try {
+            return new FileInputStream(getIoFile());
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
 
-			if (!file.exists())
-				file.createNewFile();
-			else {
-				return;
-			}
+    
+    public void fileSave(InputStream ist) {
+        File file = getIoFile();
+        try (FileOutputStream out = new FileOutputStream(file);
+             InputStream in = ist) {
 
-			byte[] data = new byte[1024 * 4];
-			FileOutputStream out = new FileOutputStream(file);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
 
-			while (ist.read(data) != -1) {
-				out.write(data);
-		
-			}
-			
+            byte[] data = new byte[1024 * 4];
+            int bytesRead;
+            while ((bytesRead = in.read(data)) != -1) {
+                out.write(data, 0, bytesRead);
+            }
 
-			
-			FileDao fileDao = SpContext.context.getBean("fileDao", FileDao.class);
-			fileDao.add(userFile);
-			out.close(); 
-			ist.close(); 
-			
-		} catch (Exception er) {
-			System.out.println(er);
-		}
-	}
+            FileDao fileDao = SpContext.context.getBean("fileDao", FileDao.class);
+            fileDao.add(userFile);
 
-	public void fileSave(byte[] fileData) {
-		try {
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
-			File file = new File(dir + "\\" + userFile.getFileName());
+    
+    public void fileSave(byte[] fileData) {
+        File file = getIoFile();
+        try (FileOutputStream flo = new FileOutputStream(file)) {
 
+            if (!file.exists()) {
+                file.createNewFile();
+            }
 
-			if (!file.exists())
-				System.out.println(file.createNewFile());
-			else {
-				return;
-			}
+            flo.write(fileData);
 
-			FileOutputStream flo = new FileOutputStream(file);
+            FileDao fileDao = SpContext.context.getBean("fileDao", FileDao.class);
+            fileDao.add(userFile);
+           
 
-			flo.write(fileData);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
-			flo.close();
+   
+    public void fileDelete() {
+        File file = getIoFile();
+       
+        if (file.exists()) {
+            FileDao fileDao = SpContext.context.getBean("fileDao", FileDao.class);
+            fileDao.delete(userFile);
+            file.delete(); 
+            System.out.println(" For FIle delete"); 
+            
+        }
+    }
 
-			FileDao fileDao = SpContext.context.getBean("fileDao", FileDao.class);
-			fileDao.add(userFile);
-			System.out.println(" file added inside ");
+    
+    public void share(User user) {
+        System.out.println("Inside the share");
+        entities.File rec = new entities.File(userFile, user);
+        Storage st = new Storage(rec);
+        st.fileSave(getFileData());
+    }
 
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-	}
-
-	public void share(User user) {
-		System.out.println(" inside the share ");
-		entities.File rec = new entities.File(userFile, user);
-		Storage st = new Storage(rec);
-		st.fileSave(getFileData());
-
-	}
-
-	public byte[] getFileData() {
-		try {
-
-			FileInputStream fos = new FileInputStream(dir + "\\" + userFile.getFileName());
-			return fos.readAllBytes();
-		} catch (Exception e) {
-
-			System.out.print(e);
-			return null;
-		}
-
-	}
-
+    
+    public byte[] getFileData() {
+        File file = getIoFile();
+        try (FileInputStream fis = new FileInputStream(file)) {
+            return fis.readAllBytes();
+        } catch (Exception e) {
+            System.out.print(e);
+            return null;
+        }
+    }
 }
