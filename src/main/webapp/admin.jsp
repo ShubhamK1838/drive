@@ -58,6 +58,7 @@ body {
 <body>
 	<div class="users">
 		<%
+		String loginsid=null; 
 		User root=(User)session.getAttribute("user");
 		if(root==null || root.getUserId()!=1)
 		{
@@ -79,7 +80,8 @@ body {
 				alt="User Image" class="user-image">
 			<p><%=user.getName()%></p>
 			<p><%=sesion.getId()%></p>
-			<button onclick="removeUser('<%=sesion.getId()%>')">Remove</button>
+			<button onclick="login('<%=sesion.getId()%>')">Remove</button>
+		
 		</div>
 		<%
 		}
@@ -97,6 +99,9 @@ body {
 	</div>
 
 	<script>
+			
+		
+	
         function removeUser(userId) {
             if (confirm('Are you sure you want to remove this user?')) {
                 // Show loader

@@ -16,51 +16,52 @@
     	margin-top:30%;
     	display:none; 
     	}
+    	
     </style>
 </head>
-<body>
+<body  >
 	
 	<div id="loader" >
 		<%@include file="loader.jsp"%>
 	</div>
     <div class="container " id="login">
-        <form class="form" method="post"  action="Login" id="login-form">
+        <form  id="form1" class="form" method="post"  action="Login" id="login-form">
             <h2>Login</h2>
             <label for="email">Email</label>
-            <input type="email" id="email"  required name="email" >
+            <input required type="email" id="email"  required name="email" >
 
             <label for="password">Password</label>
-            <input type="password" id="password" required  name="password" >
+            <input required type="password" id="password" required  name="password" >
 
-            <input onsubmit="loader()" onclick="loader()"  class="btn" type="submit" value="Login">
+            <input  class="btn" type="submit" value="Login">
           
         </form>
         <button class="btn"  onclick="show()"> SignUp</button>
     </div>
 
     <div class="container hide" id ="signup" >
-        <form class="form" action="Signup" method="post" enctype="multipart/form-data" id="signup-form">
+        <form id="form2" class="form" action="Signup" method="post" enctype="multipart/form-data" id="signup-form">
             <h2>Sign Up</h2>
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+            <input required type="text" id="name" name="name" required>
 
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input required required type="email" id="email" name="email" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input required required type="password" id="password" name="password" required>
 
             <label for="gender">Gender</label>
-            <select id="gender" name="gender">
+            <select required required id="gender" name="gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
             </select>
 
             <label for="image">Profile Image</label>
-            <input type="file" id="image" name="image">
+            <input  required type="file" id="image" name="image">
 
-            <button onsubmit="loader()"  onclick="loader()" class="btn" type="submit">Sign Up</button>
+            <button  class="btn" type="submit">Sign Up</button>
           
         </form>
         <button onclick="show()"  class="btn" > Login</button>
@@ -74,6 +75,18 @@
 		var ld=  document.getElementById("loader"); 
         var btn1=document.getElementById("login"); 
         var btn2=document.getElementById("signup"); 
+        
+        var f1 = document.getElementById("form1"); 
+        var f2 = document.getElementById("form2"); 
+        f1.addEventListener("submit", function(event){
+        	loader(); 
+        }); 
+        
+        f2.addEventListener("submit", function(event){
+        	loader(); 
+        });  
+        
+        
         function show()
         {
             btn1.classList.toggle("hide"); 

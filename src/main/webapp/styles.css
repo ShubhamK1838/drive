@@ -235,3 +235,56 @@ p {
         padding: 5px 0;
     }
 }
+/* General styles for file items */
+.file-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 100%; /* Full width of the container */
+    max-width: 300px; /* Maximum width of the container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Container for image content */
+.file-content.image-content {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Maximum height to avoid overflow */
+    object-fit: cover; /* Cover the area without distortion */
+}
+
+/* Container for video content */
+.file-content.video-content {
+    width: 100%; /* Full width of the container */
+    max-height: 200px; /* Maximum height to avoid overflow */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+/* Container for executable file icons */
+.file-content.exe-content {
+    width: 100%; /* Full width of the container */
+    max-height: 100px; /* Maximum height to avoid overflow */
+    object-fit: contain; /* Contain the image within the box */
+}
+
+/* Styles for action buttons */
+.actions {
+    margin-top: 10px;
+}
+
+button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+

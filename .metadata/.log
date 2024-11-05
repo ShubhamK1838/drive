@@ -27,3 +27,29 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.oomph.setup.ui 1 0 2024-07-27 23:17:39.730
 !MESSAGE Setup tasks were performed during startup updating 27 preferences. See 'C:\Users\shubh\eclipse\eclipse\configuration\org.eclipse.oomph.setup\setup.log' for details
+!SESSION 2024-09-11 17:17:00.371 -----------------------------------------------
+eclipse.buildId=4.32.0.20240502-0721
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product -data C:\Users\shubh\git\Drive
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-09-11 17:17:06.956
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-09-11 17:17:08.467
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY org.eclipse.equinox.app 0 0 2024-09-11 17:17:10.222
+!MESSAGE Product org.eclipse.epp.package.jee.product could not be found.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-09-11 17:17:11.465
+!MESSAGE Logback config file: C:\Users\shubh\git\drive\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.1.20240411-1122.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-09-11 17:17:23.834
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\shubh'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

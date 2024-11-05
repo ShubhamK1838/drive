@@ -18,6 +18,7 @@ public class Storage {
        
         dir = path + File.separator + "storage" + File.separator + "d" + userFile.getUser().getUserId();
         createDirectoryIfNotExists();
+        System.out.println(dir);
     }
 
     public Storage(int fileId) {
@@ -30,6 +31,7 @@ public class Storage {
    
     private void createDirectoryIfNotExists() {
         File file = new File(dir);
+        
         if (!file.exists()) {
         	file.mkdirs(); 
         }

@@ -92,6 +92,19 @@
             document.getElementById('main').style.display = 'block';
             document.getElementById('sub').style.display = 'none';
         }
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'F5' || (event.ctrlKey && event.key === 'r')) {
+                event.preventDefault();
+                alert("Page refresh prevented!");
+            }
+        });
+
+        window.addEventListener('beforeunload', function(event) {
+            event.preventDefault();
+            event.returnValue = '';
+            return "Are you sure you want to leave this page?";
+        });
+
     </script>
 </body>
 </html>

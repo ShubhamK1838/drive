@@ -19,6 +19,7 @@
             <a href="home.jsp">Home</a>
             <a href="uploadfile.jsp">Upload</a>
             <a href="MyFiles.jsp">My Files</a>
+            <a href="UserFiles.jsp">File</a>
             <a href="edit.jsp">Setting</a>
             <a href="LogoutServlet">Logout</a>
         </nav>

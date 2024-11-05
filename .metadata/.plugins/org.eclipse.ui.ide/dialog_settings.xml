@@ -57,8 +57,8 @@
 		<item value="org.eclipse.emf:2.38.0.v20240314-1003"/>
 		<item value="org.eclipse.epp.mpc:1.10.3.v20240228-1000"/>
 		<item value="org.eclipse.gef:3.20.0.202405011806"/>
-		<item value="org.eclipse.help:2.3.1800.v20240428-1800"/>
-		<item value="org.eclipse.jdt:3.19.500.v20240428-1800"/>
+		<item value="org.eclipse.help:2.3.1800.v20240601-0610"/>
+		<item value="org.eclipse.jdt:3.19.500.v20240601-0610"/>
 		<item value="org.eclipse.jgit.gpg.bc:6.9.0.202403050737-r"/>
 		<item value="org.eclipse.jgit.http.apache:6.9.0.202403050737-r"/>
 		<item value="org.eclipse.jgit.ssh.apache:6.9.0.202403050737-r"/>
@@ -105,9 +105,9 @@
 		<item value="org.eclipse.oomph.p2:1.30.0.v20240315-0921"/>
 		<item value="org.eclipse.oomph.setup.core:1.31.0.v20240420-0837"/>
 		<item value="org.eclipse.oomph.setup:1.32.0.v20240420-0837"/>
-		<item value="org.eclipse.pde:3.15.400.v20240428-1800"/>
-		<item value="org.eclipse.platform:4.32.0.v20240428-1800"/>
-		<item value="org.eclipse.rcp:4.32.0.v20240428-1800"/>
+		<item value="org.eclipse.pde:3.15.400.v20240601-0610"/>
+		<item value="org.eclipse.platform:4.32.0.v20240601-0610"/>
+		<item value="org.eclipse.rcp:4.32.0.v20240601-0610"/>
 		<item value="org.eclipse.tm.terminal.connector.ssh.feature:11.6.0.202403071917"/>
 		<item value="org.eclipse.tm.terminal.control.feature:11.6.0.202403071917"/>
 		<item value="org.eclipse.tm.terminal.feature:11.6.0.202403071917"/>

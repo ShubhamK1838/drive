@@ -1,0 +1,186 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.content-item {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.content-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.content-item img,
+.content-item video,
+.content-item .exe-image {
+    width: 100%;
+    max-width: 250px;
+    height: 150px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Ensure proper fit for images */
+.content-item img {
+    object-fit: contain;
+}
+
+.content-item video {
+    object-fit: cover;
+}
+
+.content-item .exe-image {
+    object-fit: contain;
+}
+
+.file-info {
+    text-align: left;
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.file-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+.actions button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    flex: 1;
+    transition: background 0.2s;
+}
+
+.actions button:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .content-item {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .actions button {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-item {
+        padding: 10px;
+    }
+    
+    .actions button {
+        padding: 6px 8px;
+        font-size: 10px;
+    }
+}
+/* General styles for file items */
+.file-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 100%; /* Full width of the container */
+    max-width: 300px; /* Maximum width of the container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Container for image content */
+.file-content.image-content {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Maximum height to avoid overflow */
+    object-fit: cover; /* Cover the area without distortion */
+}
+
+/* Container for video content */
+.file-content.video-content {
+    width: 100%; /* Full width of the container */
+    max-height: 200px; /* Maximum height to avoid overflow */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+/* Container for executable file icons */
+.file-content.exe-content {
+    width: 100%; /* Full width of the container */
+    max-height: 100px; /* Maximum height to avoid overflow */
+    object-fit: contain; /* Contain the image within the box */
+}
+
+/* Styles for action buttons */
+.actions {
+    margin-top: 10px;
+}
+
+button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+/* Container for image content */
+.file-content.image-content {
+    width: 100%; /* Full width of the container */
+    height: 150px; /* Fixed height */
+    object-fit: cover; /* Ensure the image covers the container */
+    display: block; /* Ensure block display */
+}
